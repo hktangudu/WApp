@@ -1,0 +1,38 @@
+<h1>Update your Wall profile</h1>
+
+
+<%= form_for @user , :url => {action: "Update", :id => @user._id } do |u| %>
+
+<div align="center" >
+	<table  cellpadding="10">
+		<tr>
+			<td width="10px"></td>
+			<td> User details </td>
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td>
+				<%= u.text_field :Name , :value => @user.Name%>
+			</td>
+		</tr>
+		<tr>
+			<td>Age</td>
+			<td>
+				<%= u.text_field :Age , :value => @user.Age%>
+			</td>
+		</tr>
+		<tr>
+			<td>Address</td>
+			<td>
+				<%= u.text_field :Address , :value => @user.Address%>
+			</td>
+		</tr>
+		
+	</table>
+</div>
+
+<div align="center">
+	<%= button_to  'Update profile', :action => "Update" %>
+</div>
+
+<% end %>>

@@ -1,0 +1,54 @@
+<header>
+	
+	<style type="text/css">
+	.headername 
+	{
+	color: orange;
+    text-align: center;
+    background-color: #7D7BCE;
+	height:100px;
+	}
+	</style>
+</header>
+<%= form_for @user , :as => :user, url:{action: "check_login"} do |u| %>
+
+<div>
+ <h1 class="headername">
+ 	Welcome To Wall App 
+ </h1>
+</div>
+<h1 align="center">Login</h1>
+<div align="center" >
+	<table cellpadding="10">
+
+		<tr>
+			<td> Username </td>
+			<td width="10px"></td>
+			<td>
+				<%= u.text_field :UserName ,  placeholder:"UserID" %>
+			</td>
+		</tr>
+
+		<tr>
+			<td> Password </td>
+			<td width="10px"></td>
+			<td>
+				<%= u.password_field :password ,  placeholder:"Password"%>
+			</td>
+		</tr>
+
+		<tr>
+			<td ></td>
+			<td width="10px"></td>
+			<td>
+			 <%= u.submit  'Signin'  %>
+			</td>
+		</tr>
+	</table>
+
+	<% if flash[:notice] %>
+    <div class="notice"><font color="red"><%= flash[:notice] %></font></div>
+  <% end %>
+
+</div>
+<% end %>

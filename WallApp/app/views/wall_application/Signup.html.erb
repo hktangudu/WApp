@@ -1,0 +1,56 @@
+<h1>
+	Registration for Wall
+</h1>
+ 
+<%= form_for @user , :as => :user, url:{action: "crateuser"} do |u|%>
+
+<div align="center" >
+	<table  cellpadding="10">
+		<tr>
+			<td width="10px"></td>
+			<td> User details </td>
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td>
+				<%= u.text_field :Name , placeholder: "User name"%>
+			</td>
+		</tr>
+		<tr>
+			<td>Age</td>
+			<td>
+				<%= u.text_field :Age , placeholder: "Age"%>
+			</td>
+		</tr>
+		<tr>
+			<td>Address</td>
+			<td>
+				<%= u.text_field :Address , placeholder: "Address"%>
+			</td>
+		</tr>
+		<tr>
+			<td>UserName</td>
+			<td>
+				<%= u.text_field :UserName , placeholder: "UserID"%>
+			</td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td>
+				<%= u.password_field :password , placeholder: "Password"%>
+			</td>
+		</tr>
+		<tr>
+			<td>conform Password</td>
+			<td>
+				<%= u.password_field :password_confirmation , placeholder: "Conform Password"%>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div align="center">
+	<%= button_to  'Signup', :action => "crateuser" %>
+</div>
+
+<% end %>>
