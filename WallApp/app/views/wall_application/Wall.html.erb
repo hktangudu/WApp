@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+<style>
+ul#menu {
+    padding: 0;
+}
+
+ul#menu li {
+    display: inline;
+
+}
+ul#menu li {
+    background-color: #BBB000;
+    width: 100px
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px 4px 0 0;
+
+}
+
+ul#menu li:hover {
+    background-color: orange;
+}
+ 
+
+
+#wall
+{
+	width: 1500px;
+	vertical-align: center;
+	margin-left: 10%;
+	padding-top: 85px;
+
+}
+
+#LikeDislikeWall
+{
+	text-align: right;
+	margin-right: 20%;
+}
+
+#Links
+{
+	position: fixed;
+
+}
+
+#Comments
+{
+	width: 1500px;
+	vertical-align: center;
+	margin-left: 10%;
+	
+}
+
+#headerstyle
+{
+	background-color: #ccc;
+	position: fixed;
+	width: 2200px; 
+}
+#body
+{
+	padding-top: 170px;
+}
+#Logout
+{
+	position: fixed;
+	top: 190px;
+    right: 5px;
+}
+
+}
+
+</style>
+	</head>
+
+	<body style="background-image:url(<%= asset_path 'Houten-achtergronden-houten-wallpapers-hd-hout-wallpaper-afbeelding.jpg'%>); background-size:cover; background-repeat:norepeat; width: 100%; height: 100%;">
+
+		
+
+		<div align="left" id="headerstyle" style="background-image:url(<%= asset_path 'images.jpg'%>);  background-repeat:norepeat; width: 100%; height: 16%;">
+
+			
+
+			<table>
+				<tr>
+					<td>
+						<%= image_tag("/icons/icon.gif", height: '155', width: '155') %>
+					</td>
+					<td width="100px"></td>
+					<td>
+						<ul>
+							<li style="list-style-type:none"> Name </li>
+							<li style="list-style-type:none"> EmailID </li>
+							<li style="list-style-type:none"> Age </li>
+							<li style="list-style-type:none"> Country </li>
+							<li style="list-style-type:none"> Phone.No </li>
+							<li style="list-style-type:none"> Status </li>
+						</ul>
+					</td>
+					<td width="100px"></td>
+					<td>
+						<ul>
+							<li style="list-style-type:none"><%= @user.Name %>  </li>
+							<li style="list-style-type:none"> EmailID </li>
+							<li style="list-style-type:none"><%= @user.Age %> </li>
+							<li style="list-style-type:none"> <%= @user.Address %> </li>
+							<li style="list-style-type:none"><%= @user.Phone %> </li>
+							<li style="list-style-type:none"> Status </li>
+						</ul>
+					</td>
+				</tr>
+			</table>
+
+		</div>
+
+		
+
+	<div id="body">
+		<div id="Links">
+			<ul id="menu">
+			  <li><%= link_to 'Home' %></li>
+			  <li><%= link_to 'Update Profile', :action => "ProfileUpdate", :id => @user.id%></li>
+			  <li><%= link_to 'Post' %></li>
+			  <li><%= link_to 'Add/Change Category' %></li>
+			  <li><%= link_to 'Comment' %></li>
+			  <li id="Logout"><%= link_to 'Logout', :action => "Logout"%></li>
+			</ul>  
+		</div>
+		<div id="wall" >
+				<%= text_area cols="200", rows="300" , size: "200x50"%>
+		</div>
+
+		<div id="LikeDislikeWall">
+			<%= link_to 'Like' do %>
+				<img alt="like" height="20" src="/assets/like.jpg" >
+			<% end %>
+			<%= link_to 'Dislike' do %>
+				<img alt="like" height="20" src="/assets/dislike.jpg">
+			<% end %>
+		</div>
+
+		<div id="Comments">
+			<%= text_area cols="200", rows="300" , size: "200x10"%>
+		</div>
+	</div>
+	</body>
+
+</html>
